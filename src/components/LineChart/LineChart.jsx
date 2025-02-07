@@ -13,7 +13,7 @@ const LineChart = ({historicalData}) => {
             })
             setData(dataCopy)
         }
-    },[])
+    },[historicalData])//it will change chart currency price on chart
 
   return (
     <Chart
