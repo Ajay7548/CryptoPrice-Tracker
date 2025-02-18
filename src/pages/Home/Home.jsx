@@ -104,32 +104,3 @@ const Home = () => {
 
 export default Home;
 
-
-// useEffect(() => {
-//   const fetchCoins = async () => {
-//     try {
-//       setError(null); // Reset error before fetching
-//       setLoading(true);
-
-//       const response = await fetch(
-//         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
-//       );
-
-//       if (!response.ok) {
-//         throw new Error(`HTTP Error ${response.status}`);
-//       }
-
-//       const data = await response.json();
-//       if (!Array.isArray(data)) throw new Error("Invalid API response");
-
-//       setDisplayCoin(data); // Update state with fetched data
-//     } catch (error) {
-//       console.error("Error fetching data:", error);
-//       setError(error.message);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   fetchCoins();
-// }, []);
