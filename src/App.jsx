@@ -1,23 +1,34 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home/Home'
-import Coin from './pages/Coin/Coin'
-import Footer from './components/Footer/Footer'
-// import Pricing from './pages/Pricing/Pricing'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Coin from "./pages/Coin";
+import Footer from "./components/Footer";
+// import Favourite from "./pages/Favourite/Favourite";
+// import Features from "./pages/Features/Features";
+// import Pricing from "./pages/Pricing/Pricing";
 
 const App = () => {
   return (
-    <div className='app'>
-      <Navbar/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          {/* <Route path='/Pricing' element={<Pricing/>}/> */}
-          <Route path='/coin/:coindID' element={<Coin/>}/>
-        </Routes>
-        <Footer/>
-    </div>
-  )
-}
+    <div className="min-h-screen flex flex-col bg-gray-950 text-white">
+      {/* Navbar */}
+      <Navbar />
 
-export default App
+      {/* Main Content */}
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/favourite" element={<Favourite />} /> */}
+          {/* <Route path="/features" element={<Features />} /> */}
+          {/* <Route path="/pricing" element={<Pricing />} /> */}
+          <Route path="/coin/:coinID" element={<Coin />} />
+        </Routes>
+      </main>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
