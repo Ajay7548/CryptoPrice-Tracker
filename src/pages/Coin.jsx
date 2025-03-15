@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CoinContext } from '../context/Coincontext';
+import { CoinContext } from '../context/CoinContext';
 import LineChart from '../components/LineChart'
 
 const Coin = () => {
