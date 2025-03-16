@@ -4,7 +4,7 @@
 
 *A real-time cryptocurrency tracking app*
 
-## 🚀 Features
+## 🚀 Features.
 - 📊 Live cryptocurrency prices and market data
 - 🔍 Search and filter cryptocurrencies
 - 📈 Interactive charts for price trends
