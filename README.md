@@ -50,7 +50,7 @@ Upload the `dist` folder to your preferred hosting service.
 This project is open-source under the MIT License.
 
 ---
-🔗 **Live Demo**: [CryptoPrice Tracker](https://your-live-demo-url.com)
+🔗 **Live Demo**: CryptoPrice Tracker (https://cryptotracker-bo9g.onrender.com)
 
 💡 Feel free to contribute by opening an issue or pull request!
 
