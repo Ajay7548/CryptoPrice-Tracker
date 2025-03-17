@@ -21,10 +21,10 @@ const Navbar = () => {
     <nav className="flex items-center justify-between p-5 md:px-8 border-b-2 border-gray-700 text-white ">
       {/* Logo */}
       <Link to="/" className="text-2xl font-bold">
-        Cryptotracker.
+      CryptoTrendz.
       </Link>
       {/* Navigation Links */}
-      <ul className="hidden md:flex items-center gap-8 list-none">
+      {/* <ul className="hidden md:flex items-center gap-8 list-none">
         <Link to="/" className="hover:text-gray-400 transition">
           Home
           <hr className=" hidden" />
@@ -35,11 +35,11 @@ const Navbar = () => {
         <Link className="cursor-pointer hover:text-gray-400 transition">
           Pricing <hr className=" hidden" />
         </Link>
-      </ul>
+      </ul> */}
 
       {/* Right Section */}
       <div className="flex items-center gap-4">
-        <SunIcon />
+        
         {/* <MoonIcon /> */}
         {/* Currency Selector */}
         <select
@@ -60,9 +60,11 @@ const Navbar = () => {
         </select>
 
         {/* Sign-up Button */}
+        <Link to={'/login'}>
         <button className="flex items-center gap-2 px-5 py-2 focus:ring-2 focus:ring-blue-500  cursor-pointer rounded-full bg-gray-900 text-white font-medium text-sm hover:bg-gray-800 transition">
-          Sign up <img src={arrow_icon} alt="arrow" className="w-4" />
+          Login in <img src={arrow_icon} alt="arrow" className="w-4" />
         </button>
+        </Link>
       </div>
     </nav>
   );

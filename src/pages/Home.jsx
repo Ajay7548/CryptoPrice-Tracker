@@ -81,7 +81,7 @@ const Home = () => {
               list="coinlist"
               type="text"
               placeholder="Search cryptocurrency..."
-              className="flex-1 p-2 bg-transparent border-none text-white placeholder-gray-400 outline-none"
+              className="flex-1 p-1 bg-transparent border-none text-white placeholder-gray-400 outline-none"
             />
             <datalist id="coinlist">
               {allCoin.map((item, index) => (
@@ -95,9 +95,9 @@ const Home = () => {
             <select
               onChange={(e) => sortCoins(e.target.value)}
               value={sortType}
-              className="bg-gray-800 text-white px-4 py-2 rounded-md focus:ring-2 focus:ring-purple-500"
+              className="bg-gray-800 text-white p-4 rounded-md focus:ring-2 focus:ring-purple-500"
             >
-              <option value="market_cap">Sort by Market Cap</option>
+              <option value="market_cap ">Sort by Market Cap</option>
               <option value="price">Sort by Price</option>
               <option value="change">Sort by 24H Change</option>
             </select>
@@ -110,7 +110,7 @@ const Home = () => {
       {/* Crypto Table */}
       <div className=" lg:max-w-4xl max-w-3xl mx-auto mt-6 bg-gray-900 border border-gray-800 p-5 rounded-xl shadow-xl">
         {/* Table Header */}
-        <div className="grid grid-cols-[0.5fr_1fr_1fr_1fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr] py-3 border-b border-gray-700 text-white text-sm md:text-base font-semibold">
+        <div className="grid grid-cols-[0.5fr_1fr_1fr_1fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr] py-3 border-b border-gray-700 text-white text-sm md:text-lg font-semibold">
           <p className="text-center">#</p>
           <p className="text-center lg:text-left lg:pl-12">Coin</p>
           <p className="text-center">Price</p>
