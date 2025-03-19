@@ -2,7 +2,8 @@
 
 # ✨ CryptoPrice Tracker ✨
 
-![CryptoPrice Tracker](https://github.com/user-attachments/assets/1136b580-b24e-4ec8-bc07-9cf4aa73ded6)
+![CryptoPrice Tracker](<img width="960" alt="cryptopriceTracker" src="https://github.com/user-attachments/assets/1ffd9550-ee36-4b67-ae74-fc62cb32f68b" />
+)
 
 *A real-time cryptocurrency tracking app with live data, interactive charts, and a seamless user experience.*
 
