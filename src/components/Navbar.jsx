@@ -21,17 +21,17 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between bg-white dark:bg-gray-950 p-5 md:px-8 border-b-2 dark:text-white dark:border-gray-800 border-gray-200 text-neutral-900 transition-colors duration-300">
       {/* Logo */}
-      <Link to="/" className="text-2xl font-bold text-neutral-900 dark:text-white transition-colors duration-300">
+      <Link to="/" className="text-2xl  font-bold text-neutral-900 dark:text-white transition-colors duration-300">
         CryptoTrendz.
       </Link>
 
 
       {/* Right Section */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-2 lg:gap-6">
         {/* Currency Selector */}
         <select
           onChange={currencyHandler}
-          className="p-1.5 border border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded-md 
+          className="lg:p-1.5 p-1 border border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded-md 
              hover:border-gray-500 dark:hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 
              transition-all duration-300 ease-in-out cursor-pointer"
         >
@@ -42,7 +42,7 @@ const Navbar = () => {
 
         {/* Login Button */}
         <Link to={'/login'}>
-          <button className="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium 
+          <button className="lg:flex  hidden items-center gap-2 px-5 py-2 rounded-full text-sm font-medium 
              bg-gray-200 dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-600 
              hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out focus:ring-2 focus:ring-blue-500"
           >

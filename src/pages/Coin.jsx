@@ -44,7 +44,7 @@ const Coin = () => {
 
   if (!coinData || !historicalData) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-900">
+      <div className="flex items-center justify-center min-h-screen dark:bg-gray-900">
         <div className="w-16 h-16 border-4 border-gray-500 border-t-purple-600 rounded-full animate-spin"></div>
       </div>
     );
@@ -58,33 +58,33 @@ const Coin = () => {
         <div className="flex items-center space-x-4">
           <img src={coinData.image?.large} alt={coinData.name} className="w-12 h-12" />
           <div>
-            <h1 className="text-2xl dark:text-white text-black font-bold">{coinData.name} ({coinData.symbol?.toUpperCase()})</h1>
+            <h1 className="md:text-2xl text-lg dark:text-white text-black font-bold">{coinData.name} ({coinData.symbol?.toUpperCase()})</h1>
           </div>
         </div>
 
         {/* Percentage Change */}
-        <div className={`px-3 py-1 rounded-md  font-semibold text-lg 
+        <div className={`px-3 py-1 hidden md:block rounded-md  font-semibold text-lg 
           ${coinData.market_data?.price_change_percentage_24h > 0 ? "text-green-500" : "text-red-500"}`}>
           {coinData.market_data?.price_change_percentage_24h?.toFixed(2)}%
         </div>
 
         {/* Current Price */}
-        <div className="flex items-center space-x-2">
-          <span>💹</span>
-          <span className="text-xl font-semibold dark:text-white text-black ">
+        <div className="flex items-center space-x-2 ">
+          <span className="hidden md:block">💹</span>
+          <span className="lg:text-xl   text-lg font-semibold dark:text-white text-black ">
             {currency.symbol} {coinData.market_data?.current_price?.[currency.name]?.toLocaleString()}
           </span>
         </div>
 
         {/* Volume & Market Cap */}
-        <div className="text-right">
-          <p className="text-gray-400 text-sm dark:text-white ">24h Volume</p>
+        <div className="text-right hidden md:block">
+          <p className="text-gray-400 text-sm ">24h Volume</p>
           <p className="font-semibold dark:text-white text-black ">
             {currency.symbol} {coinData.market_data?.total_volume?.[currency.name]?.toLocaleString()}
           </p>
         </div>
 
-        <div className="text-right">
+        <div className="text-right hidden md:block">
           <p className="text-gray-400 text-sm ">Market Cap</p>
           <p className="font-semibold text-black dark:text-white ">
             {currency.symbol} {coinData.market_data?.market_cap?.[currency.name]?.toLocaleString()}
