@@ -14,15 +14,15 @@
 📈 **Interactive Charts** – View historical price trends and analytics  
 📊 **Sorting & Ranking** – Sort coins by market cap, price, and more  
 ⚡ **Fast & Responsive UI** – Built with Vite and optimized for speed  
-💾 **Bookmark Coins** – Save your favorite cryptocurrencies for quick access  
+
 
 ---
 
 ## 🛠️ Tech Stack
 - **Frontend**: React, Vite, Tailwind CSS
-- **State Management**: Context API / Redux *(if applicable)*
-- **Data Fetching**: CoinGecko API *(or alternative APIs)*
-- **Deployment**: Render / Vercel / Netlify
+- **State Management**: Context API 
+- **Data Fetching**: CoinGecko API 
+- **Deployment**: Render 
 
 ---
 
