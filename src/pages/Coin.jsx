@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { CoinContext } from '../context/CoinContext';
-import LineChart from '../components/LineChart'
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { CoinContext } from "../context/CoinContext";
+import LineChart from "../components/LineChart";
 
 const Coin = () => {
   const { coinID } = useParams();
@@ -11,15 +11,10 @@ const Coin = () => {
 
   const fetchCoinData = async () => {
     try {
-      const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          'x-cg-demo-api-key': 'CG-8CvzisH1Cou8eHKc2TPxH3q1',
-        },
-      };
-
-      const response = await fetch(`https://api.coingecko.com/api/v3/coins/${coinID}`, options);
+      const response = await fetch(
+        `https://api.coingecko.com/api/v3/coins/${coinID}`,
+        { headers: { accept: "application/json" } }
+      );
       const data = await response.json();
       setCoinData(data);
     } catch (error) {
@@ -29,17 +24,9 @@ const Coin = () => {
 
   const fetchHistoricalData = async () => {
     try {
-      const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          'x-cg-demo-api-key': 'CG-8CvzisH1Cou8eHKc2TPxH3q1',
-        },
-      };
-
       const response = await fetch(
         `https://api.coingecko.com/api/v3/coins/${coinID}/market_chart?vs_currency=${currency.name}&days=7&interval=daily`,
-        options
+        { headers: { accept: "application/json" } }
       );
       const data = await response.json();
       setHistoricalData(data);
@@ -64,36 +51,55 @@ const Coin = () => {
   }
 
   return (
-    <div className="p-6 md:p-12 bg-gray-900 min-h-screen text-white">
-      {/* Coin Name & Image */}
-      <div className="flex flex-col items-center text-center mb-8">
-        <img src={coinData?.image?.large} alt={coinData.name} className="w-24 h-24 md:w-32 md:h-32" />
-        <h1 className="text-3xl md:text-4xl font-bold mt-4">
-          {coinData.name} ({coinData.symbol?.toUpperCase()})
-        </h1>
+    <div className="p-6 bg-white dark:bg-gray-900 min-h-[80vh] text-white">
+      {/* Crypto Info Container */}
+      <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 flex items-center justify-between">
+        {/* Logo & Name */}
+        <div className="flex items-center space-x-4">
+          <img src={coinData.image?.large} alt={coinData.name} className="w-12 h-12" />
+          <div>
+            <h1 className="text-2xl dark:text-white text-black font-bold">{coinData.name} ({coinData.symbol?.toUpperCase()})</h1>
+          </div>
+        </div>
+
+        {/* Percentage Change */}
+        <div className={`px-3 py-1 rounded-md  font-semibold text-lg 
+          ${coinData.market_data?.price_change_percentage_24h > 0 ? "text-green-500" : "text-red-500"}`}>
+          {coinData.market_data?.price_change_percentage_24h?.toFixed(2)}%
+        </div>
+
+        {/* Current Price */}
+        <div className="flex items-center space-x-2">
+          <span>💹</span>
+          <span className="text-xl font-semibold dark:text-white text-black ">
+            {currency.symbol} {coinData.market_data?.current_price?.[currency.name]?.toLocaleString()}
+          </span>
+        </div>
+
+        {/* Volume & Market Cap */}
+        <div className="text-right">
+          <p className="text-gray-400 text-sm dark:text-white ">24h Volume</p>
+          <p className="font-semibold dark:text-white text-black ">
+            {currency.symbol} {coinData.market_data?.total_volume?.[currency.name]?.toLocaleString()}
+          </p>
+        </div>
+
+        <div className="text-right">
+          <p className="text-gray-400 text-sm ">Market Cap</p>
+          <p className="font-semibold text-black dark:text-white ">
+            {currency.symbol} {coinData.market_data?.market_cap?.[currency.name]?.toLocaleString()}
+          </p>
+        </div>
+
+        {/* Favorite Button */}
+        <button className="p-2 rounded-full border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition">
+          ⭐
+        </button>
       </div>
 
       {/* Chart Section */}
-      <div className="max-w-3xl mx-auto bg-gray-800 rounded-lg shadow-md p-4">
+      <div className="max-w-5xl mx-auto h-[400px] dark:bg-gray-800 bg-gray-100 rounded-lg shadow-md p-4 mt-8">
         <LineChart historicalData={historicalData} />
-      </div>
-
-      {/* Coin Info */}
-      <div className="max-w-3xl mx-auto mt-8 space-y-4">
-        {[
-          { label: "Crypto Market Rank", value: coinData.market_cap_rank },
-          { label: "Current Price", value: coinData.market_data?.current_price?.[currency.name] },
-          { label: "Market Cap", value: coinData.market_data?.market_cap?.[currency.name] },
-          { label: "24 Hour High", value: coinData.market_data?.high_24h?.[currency.name] },
-          { label: "24 Hour Low", value: coinData.market_data?.low_24h?.[currency.name] },
-        ].map((info, index) => (
-          <div key={index} className="flex justify-between border-b border-gray-700 py-3">
-            <span className="text-gray-400">{info.label}</span>
-            <span className="font-semibold">
-              {currency.symbol} {info.value?.toLocaleString() || "N/A"}
-            </span>
-          </div>
-        ))}
       </div>
     </div>
   );
