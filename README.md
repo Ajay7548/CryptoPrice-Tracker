@@ -2,7 +2,7 @@
 
 # ✨ CryptoPrice Tracker ✨
 
-![CryptoPrice Tracker](https://github.com/user-attachments/assets/1136b580-b24e-4ec8-bc07-9cf4aa73ded6)
+<img width="960" alt="cryptopriceTracker" src="https://github.com/user-attachments/assets/431297be-eb0e-47bf-99c7-4d71a08b4dab" />
 
 *A real-time cryptocurrency tracking app with live data, interactive charts, and a seamless user experience.*
 
@@ -14,15 +14,15 @@
 📈 **Interactive Charts** – View historical price trends and analytics  
 📊 **Sorting & Ranking** – Sort coins by market cap, price, and more  
 ⚡ **Fast & Responsive UI** – Built with Vite and optimized for speed  
-💾 **Bookmark Coins** – Save your favorite cryptocurrencies for quick access  
+
 
 ---
 
 ## 🛠️ Tech Stack
 - **Frontend**: React, Vite, Tailwind CSS
-- **State Management**: Context API / Redux *(if applicable)*
-- **Data Fetching**: CoinGecko API *(or alternative APIs)*
-- **Deployment**: Render / Vercel / Netlify
+- **State Management**: Context API 
+- **Data Fetching**: CoinGecko API 
+- **Deployment**: Render 
 
 ---
 
@@ -57,7 +57,10 @@ The app will be available at **http://localhost:5173/** (or as specified in your
 ![Sorting & Price](https://github.com/user-attachments/assets/8e3da507-a3bc-400b-b6a6-eceaa11df55b)
 
 ### 📈 Interactive Charts
-![Crypto Charts](https://github.com/user-attachments/assets/663606e3-5a20-4f06-9919-fcf28decfa05)
+<img width="960" alt="chartcrypto" src="https://github.com/user-attachments/assets/ccfe6916-1e3a-4670-b3a8-13c14bbaaec1" />
+
+### 📈 Mobile View
+<img width="352" alt="mobilecryto" src="https://github.com/user-attachments/assets/275c045a-d3de-4ec1-afa7-6ac9eaab50db" />
 
 ---
 
