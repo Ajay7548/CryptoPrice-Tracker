@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <nav className="flex  items-center justify-between bg-white dark:bg-gray-950 p-5 md:px-8 border-b-2 dark:text-white dark:border-gray-800 border-gray-200 text-neutral-900 transition-colors duration-300">
       {/* Logo */}
-      <Link to="/" className="text-2xl  font-bold text-neutral-900 dark:text-white transition-colors duration-300">
+      <Link to="/" className="lg:text-2xl text-lg font-bold text-neutral-900 dark:text-white transition-colors duration-300">
         CryptoTrendz.
       </Link>
 
@@ -31,7 +31,7 @@ const Navbar = () => {
         {/* Currency Selector */}
         <select
           onChange={currencyHandler}
-          className="lg:p-1.5 p-1 border border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded-md 
+          className="lg:p-1.5 p-0.5 border border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded-md 
              hover:border-gray-500 dark:hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 
              transition-all duration-300 ease-in-out cursor-pointer"
         >
@@ -53,12 +53,12 @@ const Navbar = () => {
         {/* Dark Mode Toggle */}
         <button
           onClick={() => setDarkMode(!darkMode)}
-          className="relative w-16 h-8 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center p-1 transition-all shadow-inner"
+          className="relative w-12 lg:w-16 h-8 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center p-1 transition-all shadow-inner"
         >
           <div
             className={`absolute w-6 h-6 rounded-full shadow-md transform transition-all duration-300 ease-in-out ${
               darkMode
-                ? "translate-x-8 bg-gray-900 shadow-lg shadow-yellow-400"
+                ? "translate-x-4 lg:translate-x-8 bg-gray-900 shadow-lg shadow-yellow-400"
                 : "translate-x-0 bg-white shadow-md"
             } flex items-center justify-center`}
           >
