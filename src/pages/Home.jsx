@@ -75,14 +75,14 @@ const Home = () => {
           Stay updated with live cryptocurrency prices, market trends, and analytics.
         </p>
         <div className="flex items-center gap-4 w-full">
-          <form className="flex w-full max-w-md dark:bg-gray-900 border border-gray-700 p-3 rounded-lg items-center gap-2 shadow-lg transition-all duration-300 hover:shadow-xl">
+          <form className="flex lg:w-full  sm:max-w-2xl dark:bg-gray-900 border border-gray-700 p-3 rounded-lg items-center gap-2 shadow-lg transition-all duration-300 hover:shadow-xl">
             <input
               onChange={inputHandler}
               value={input}
               list="coinlist"
               type="text"
               placeholder="Search cryptocurrency..."
-              className="flex-1 p-1 bg-transparent border-none dark:text-white text-black placeholder-gray-400 outline-none"
+              className="flex-1 text-sm lg:text-base  p-1 bg-transparent border-none dark:text-white text-black placeholder-gray-400 outline-none"
             />
             <datalist id="coinlist">
               {allCoin.map((item, index) => (
@@ -92,11 +92,11 @@ const Home = () => {
           </form>
 
           {/* Sort Dropdown */}
-          <div className="max-w-3xl mx-auto">
+          <div className=" max-w-4xl  mx-auto">
             <select
               onChange={(e) => sortCoins(e.target.value)}
               value={sortType}
-              className="dark:bg-gray-900 dark:text-white text-gray-700 dark:border-none border p-3 rounded-md focus:ring-2 focus:ring-purple-500 transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+              className="dark:bg-gray-900  text-sm lg:text-lg dark:text-white text-gray-700 dark:border-none border lg:px-3 lg:py-4 py-4 rounded-md focus:ring-2 focus:ring-purple-500 transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
             >
               <option value="market_cap">Sort by Market Cap</option>
               <option value="price">Sort by Price</option>
@@ -108,7 +108,7 @@ const Home = () => {
 
       {/* Crypto Table */}
       <motion.div
-        className="lg:max-w-4xl max-w-3xl mx-auto mt-6 dark:bg-gray-900 border border-gray-800 p-5 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl"
+        className="lg:max-w-4xl max-w-3xl mx-auto mt-6 dark:bg-gray-900 border border-gray-800 p-2 lg:p-5 rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -127,7 +127,7 @@ const Home = () => {
           displayCoin.slice(0, 10).map((item, index) => (
             <motion.div
               key={index}
-              className="grid grid-cols-[0.5fr_1fr_1fr_1fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr] py-4 border-b border-gray-800 text-white items-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50 transition duration-300"
+              className="grid grid-cols-[0.5fr_1fr_1fr_1fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr]  py-4 border-b border-gray-800 text-white items-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50 transition duration-300"
               whileHover={{ scale: 1.02 }}
             >
               <p className="text-center text-black dark:text-white">{item.market_cap_rank}.</p>
@@ -139,11 +139,11 @@ const Home = () => {
                   </p>
                 </Link>
               </div>
-              <p className="text-center text-black dark:text-white">
+              <p className="text-center text-sm text-black dark:text-white">
                 {currency.symbol} {item.current_price.toLocaleString()}
               </p>
               <p
-                className={`text-center font-semibold ${
+                className={`text-center  font-semibold ${
                   item.price_change_percentage_24h > 0 ? "text-green-400" : "text-red-500"
                 }`}
               >

@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between bg-white dark:bg-gray-950 p-5 md:px-8 border-b-2 dark:text-white dark:border-gray-800 border-gray-200 text-neutral-900 transition-colors duration-300">
+    <nav className="flex  items-center justify-between bg-white dark:bg-gray-950 p-5 md:px-8 border-b-2 dark:text-white dark:border-gray-800 border-gray-200 text-neutral-900 transition-colors duration-300">
       {/* Logo */}
       <Link to="/" className="text-2xl  font-bold text-neutral-900 dark:text-white transition-colors duration-300">
         CryptoTrendz.
