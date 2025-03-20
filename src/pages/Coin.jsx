@@ -53,12 +53,12 @@ const Coin = () => {
   return (
     <div className="p-6 bg-white dark:bg-gray-900 min-h-[80vh] text-white">
       {/* Crypto Info Container */}
-      <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-2 lg:p-4 flex items-center justify-between">
         {/* Logo & Name */}
         <div className="flex items-center space-x-4">
-          <img src={coinData.image?.large} alt={coinData.name} className="w-12 h-12" />
+          <img src={coinData.image?.large} alt={coinData.name} className="lg:w-12 w-8 h-8 lg:h-12 " />
           <div>
-            <h1 className="md:text-2xl text-lg dark:text-white text-black font-bold">{coinData.name} ({coinData.symbol?.toUpperCase()})</h1>
+            <h1 className="md:text-2xl text-sm lg:text-lg dark:text-white text-black font-bold">{coinData.name} ({coinData.symbol?.toUpperCase()})</h1>
           </div>
         </div>
 
@@ -71,7 +71,7 @@ const Coin = () => {
         {/* Current Price */}
         <div className="flex items-center space-x-2 ">
           <span className="hidden md:block">💹</span>
-          <span className="lg:text-xl   text-lg font-semibold dark:text-white text-black ">
+          <span className="lg:text-xl  text-sm font-semibold dark:text-white text-black ">
             {currency.symbol} {coinData.market_data?.current_price?.[currency.name]?.toLocaleString()}
           </span>
         </div>
@@ -92,7 +92,7 @@ const Coin = () => {
         </div>
 
         {/* Favorite Button */}
-        <button className="p-2 rounded-full border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition">
+        <button className="p-1 lg:p-2 rounded-full border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition">
           ⭐
         </button>
       </div>

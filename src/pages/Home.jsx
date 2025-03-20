@@ -74,36 +74,38 @@ const Home = () => {
         <p className="dark:text-gray-300 text-gray-800 w-4/5 md:w-3/4 leading-relaxed">
           Stay updated with live cryptocurrency prices, market trends, and analytics.
         </p>
-        <div className="flex items-center gap-4 w-full">
-          <form className="flex lg:w-full  sm:max-w-2xl dark:bg-gray-900 border border-gray-700 p-3 rounded-lg items-center gap-2 shadow-lg transition-all duration-300 hover:shadow-xl">
-            <input
-              onChange={inputHandler}
-              value={input}
-              list="coinlist"
-              type="text"
-              placeholder="Search cryptocurrency..."
-              className="flex-1 text-sm lg:text-base  p-1 bg-transparent border-none dark:text-white text-black placeholder-gray-400 outline-none"
-            />
-            <datalist id="coinlist">
-              {allCoin.map((item, index) => (
-                <option key={index} value={item.name} />
-              ))}
-            </datalist>
-          </form>
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-4 w-full">
+  {/* Sort Dropdown - Appears first on mobile, second on large screens */}
+  <div className="w-1/2 lg:w-auto">
+    <select
+      onChange={(e) => sortCoins(e.target.value)}
+      value={sortType}
+      className="w-full lg:w-auto dark:bg-gray-900 text-sm lg:text-lg dark:text-white text-gray-700 dark:border-none border p-4 rounded-md focus:ring-2 focus:ring-purple-500 transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+    >
+      <option value="market_cap">Sort by Market Cap</option>
+      <option value="price">Sort by Price</option>
+      <option value="change">Sort by 24H Change</option>
+    </select>
+  </div>
 
-          {/* Sort Dropdown */}
-          <div className=" max-w-4xl  mx-auto">
-            <select
-              onChange={(e) => sortCoins(e.target.value)}
-              value={sortType}
-              className="dark:bg-gray-900  text-sm lg:text-lg dark:text-white text-gray-700 dark:border-none border lg:px-3 lg:py-4 py-4 rounded-md focus:ring-2 focus:ring-purple-500 transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              <option value="market_cap">Sort by Market Cap</option>
-              <option value="price">Sort by Price</option>
-              <option value="change">Sort by 24H Change</option>
-            </select>
-          </div>
-        </div>
+  {/* Search Form - Appears second on mobile, first on large screens */}
+  <form className="flex w-full dark:bg-gray-900 border border-gray-700 p-3 rounded-lg items-center gap-2 shadow-lg transition-all duration-300 hover:shadow-xl">
+    <input
+      onChange={inputHandler}
+      value={input}
+      list="coinlist"
+      type="text"
+      placeholder="Search cryptocurrency..."
+      className="flex-1 text-sm lg:text-base p-1 bg-transparent border-none dark:text-white text-black placeholder-gray-400 outline-none"
+    />
+    <datalist id="coinlist">
+      {allCoin.map((item, index) => (
+        <option key={index} value={item.name} />
+      ))}
+    </datalist>
+  </form>
+</div>
+
       </motion.div>
 
       {/* Crypto Table */}
@@ -127,19 +129,19 @@ const Home = () => {
           displayCoin.slice(0, 10).map((item, index) => (
             <motion.div
               key={index}
-              className="grid grid-cols-[0.5fr_1fr_1fr_1fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr]  py-4 border-b border-gray-800 text-white items-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50 transition duration-300"
+              className="grid grid-cols-[0.5fr_1.2fr_1fr_1fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr]  py-4 border-b border-gray-800 text-white items-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50 transition duration-300"
               whileHover={{ scale: 1.02 }}
             >
               <p className="text-center text-black dark:text-white">{item.market_cap_rank}.</p>
               <div className="flex items-center gap-2">
                 <Link to={`./coin/${item.id}`} className="flex items-center gap-2">
-                  <img src={item.image} alt={item.name} className="w-8 md:w-10 text-black dark:text-white" />
-                  <p className="text-black dark:text-white">
+                  <img src={item.image} alt={item.name} className="w-8 md:w-10  text-black dark:text-white" />
+                  <p className="text-black  lg:text-lg text-sm dark:text-white">
                     {item.name} ({item.symbol.toUpperCase()})
                   </p>
                 </Link>
               </div>
-              <p className="text-center text-sm text-black dark:text-white">
+              <p className="text-center lg:text-lg text-sm text-black dark:text-white">
                 {currency.symbol} {item.current_price.toLocaleString()}
               </p>
               <p
