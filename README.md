@@ -2,7 +2,10 @@
 
 # ✨ CryptoPrice Tracker ✨
 
-<img width="960" alt="cryptopriceTracker" src="https://github.com/user-attachments/assets/431297be-eb0e-47bf-99c7-4d71a08b4dab" />
+<img width="931" alt="cryptopriceTracker" src="https://github.com/user-attachments/assets/ceaf5104-e18c-4b26-b453-85f0917396a2" />
+
+
+🔗 **Live Demo**: [CryptoPrice Tracker](https://cryptotracker-bo9g.onrender.com)
 
 *A real-time cryptocurrency tracking app with live data, interactive charts, and a seamless user experience.*
 
@@ -72,7 +75,6 @@ npm run build
 ```
 Upload the generated `dist` folder to your preferred hosting service.
 
-🔗 **Live Demo**: [CryptoPrice Tracker](https://cryptotracker-bo9g.onrender.com)
 
 ---
 
