@@ -9,6 +9,31 @@ const CoinContextProvider = ({ children }) => {
     symbol: "₹",
   });
 
+  const [favorites, setFavorites] = useState([]);
+
+   // Load favorites from localStorage on mount
+   useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(savedFavorites);
+  }, []);
+
+  // Save favorites to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
+   // ✅ Toggle favorite function
+   const toggleFavorite = (coin) => {
+    setFavorites((prev) => {
+      const updatedFavorites = prev.some((fav) => fav.id === coin.id)
+        ? prev.filter((fav) => fav.id !== coin.id) // Remove if already in favorites
+        : [...prev, coin]; // Add to favorites
+
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites)); // Save immediately
+      return updatedFavorites;
+    });
+  };
+
   // Fetch Coins from API
   const fetchAllCoin = async () => {
     try {
@@ -47,6 +72,7 @@ const CoinContextProvider = ({ children }) => {
     setAllCoin, // ✅ Add this so other components can modify it
     currency,
     setCurrency,
+    favorites, toggleFavorite
   };
 
   return (

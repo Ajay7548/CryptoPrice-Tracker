@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CoinContext } from "../context/CoinContext";
-import { Sun, Moon,ArrowUpRightIcon } from "lucide-react";
+import { Sun, Moon, ArrowUpRightIcon } from "lucide-react";
 import { useDarkMode } from "../context/ThemeContext";
 
 const Navbar = () => {
@@ -25,6 +25,28 @@ const Navbar = () => {
         CryptoTrendz.
       </Link>
 
+      <ul className="lg:flex hidden  gap-2 pl-24  items-center text-lg font-medium">
+        <li>
+          <Link
+            to="/"
+            className="px-2 py-2 rounded-lg transition-all duration-300 hover:text-yellow-400 hover:underline"
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/favourite"
+            className="px-2 py-2 rounded-lg transition-all duration-300 hover:text-yellow-400 hover:underline"
+          >
+            Favourites
+          </Link>
+        </li>
+      </ul>
+
+      {/* Mobile screen  */}
+      {/* pending  */}
+
 
       {/* Right Section */}
       <div className="flex items-center gap-2 lg:gap-6">
@@ -46,7 +68,7 @@ const Navbar = () => {
              bg-gray-200 dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-600 
              hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out focus:ring-2 focus:ring-blue-500"
           >
-            Login <ArrowUpRightIcon className="size-4"/>
+            Login <ArrowUpRightIcon className="size-4" />
           </button>
         </Link>
 
@@ -56,11 +78,10 @@ const Navbar = () => {
           className="relative w-12 lg:w-16 h-8 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center p-1 transition-all shadow-inner"
         >
           <div
-            className={`absolute w-6 h-6 rounded-full shadow-md transform transition-all duration-300 ease-in-out ${
-              darkMode
+            className={`absolute w-6 h-6 rounded-full shadow-md transform transition-all duration-300 ease-in-out ${darkMode
                 ? "translate-x-4 lg:translate-x-8 bg-gray-900 shadow-lg shadow-yellow-400"
                 : "translate-x-0 bg-white shadow-md"
-            } flex items-center justify-center`}
+              } flex items-center justify-center`}
           >
             {darkMode ? (
               <Moon className="w-4 h-4 text-yellow-400" />

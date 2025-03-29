@@ -2,14 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import { CoinContext } from "../context/CoinContext";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // For animations
+import { Star, StarOff } from "lucide-react";
 
 const Home = () => {
-  const { allCoin, currency } = useContext(CoinContext);
+  const { allCoin, currency,favorites, toggleFavorite } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [input, setInput] = useState("");
   const [sortType, setSortType] = useState("market_cap");
+
 
   useEffect(() => {
     setDisplayCoin(allCoin);
@@ -43,6 +45,8 @@ const Home = () => {
     setDisplayCoin(sorted);
   };
 
+  
+
   if (loading)
     return <p className="text-center text-gray-400">Loading crypto data...</p>;
 
@@ -61,6 +65,7 @@ const Home = () => {
 
   return (
     <div className="px-4 pb-24">
+
       {/* Hero Section */}
       <motion.div
         className="max-w-[650px] mx-auto mt-16 flex flex-col items-center text-center gap-6"
@@ -134,6 +139,19 @@ const Home = () => {
             >
               <p className="text-center text-black dark:text-white">{item.market_cap_rank}.</p>
               <div className="flex items-center gap-2">
+               {/* Star button toggles favorite */}
+          <button onClick={() => toggleFavorite(item)} className="cursor-pointer">
+            {favorites.some((fav) => fav.id === item.id) ? (
+              <Star
+              size={24}
+              color={favorites ? "#FFD700" : "#555"} // Yellow if favorite
+              fill={favorites ? "#FFD700" : "none"}  // Yellow fill if favorite
+              stroke={favorites ? "#FFD700" : "#555"} // Yellow border if favorite
+              className="text-yellow-500" />
+            ) : (
+              <Star />
+            )}
+          </button>
                 <Link to={`./coin/${item.id}`} className="flex items-center gap-2">
                   <img src={item.image} alt={item.name} className="w-8 md:w-10  text-black dark:text-white" />
                   <p className="text-black  lg:text-lg text-sm dark:text-white">

@@ -6,6 +6,7 @@ import Coin from "./pages/Coin";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import { ThemeProvider } from "./context/ThemeContext";
+import Favorite from "./pages/Favorite";
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
         <Routes>
           {/* isDarkMode should be put in elemnt only  */}
           <Route path="/" element={<Home  />} />
+          <Route path="/favourite" element={<Favorite  />} />
           <Route path="/coin/:coinID" element={<Coin  />} />
           <Route path="/login" element={<Login  />} />
         </Routes>
