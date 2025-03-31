@@ -121,7 +121,7 @@ const Home = () => {
         transition={{ duration: 0.6 }}
       >
         {/* Table Header */}
-        <div className="grid grid-cols-[0.5fr_1fr_1fr_1fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr] py-3 border-b border-gray-700 dark:text-white text-black text-sm md:text-lg font-semibold">
+        <div className="grid grid-cols-[0.25fr_1.5fr_1fr_0.5fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr] py-3 border-b border-gray-700 dark:text-white text-black text-sm md:text-lg font-semibold">
           <p className="text-center">#</p>
           <p className="text-center lg:text-left lg:pl-12">Coin</p>
           <p className="text-center">Price</p>
@@ -134,10 +134,10 @@ const Home = () => {
           displayCoin.slice(0, 10).map((item, index) => (
             <motion.div
               key={index}
-              className="grid grid-cols-[0.5fr_1.2fr_1fr_1fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr]  py-4 border-b border-gray-800 text-white items-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50 transition duration-300"
+              className="grid grid-cols-[0.25fr_1.5fr_1fr_0.5fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr]  py-4 border-b border-gray-800 text-white items-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50 transition duration-300"
               whileHover={{ scale: 1.02 }}
             >
-              <p className="text-center text-black dark:text-white">{item.market_cap_rank}.</p>
+              <p className="text-center  text-black dark:text-white">{item.market_cap_rank}.</p>
               <div className="flex items-center gap-2">
                {/* Star button toggles favorite */}
           <button onClick={() => toggleFavorite(item)} className="cursor-pointer">
@@ -149,7 +149,7 @@ const Home = () => {
               stroke={favorites ? "#FFD700" : "#555"} // Yellow border if favorite
               className="text-yellow-500" />
             ) : (
-              <Star />
+              <Star size={24} className="text-yellow-300"/>
             )}
           </button>
                 <Link to={`./coin/${item.id}`} className="flex items-center gap-2">
