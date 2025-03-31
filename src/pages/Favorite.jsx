@@ -34,7 +34,7 @@ const Favorite = () => {
           transition={{ duration: 0.6 }}
         >
           {/* Table Header */}
-        <div className="grid grid-cols-[0.5fr_1fr_1fr_1fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr] py-3 border-b border-gray-700 dark:text-white text-black text-sm md:text-md font-semibold">
+        <div className="grid grid-cols-[0.25fr_1.5fr_1fr_0.5fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr] py-3 border-b border-gray-700 dark:text-white text-black text-sm md:text-md font-semibold">
           <p className="text-center">#</p>
           <p className="text-center lg:text-left lg:pl-12">Coin</p>
           <p className="text-center">Price</p>
@@ -44,7 +44,7 @@ const Favorite = () => {
           {favorites.map((item, index) => (
             <motion.div
               key={item.id}
-              className="grid grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr] py-4 border-b border-gray-800 text-white items-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50 transition duration-300"
+              className="grid grid-cols-[0.25fr_1.5fr_1fr_0.5fr] lg:grid-cols-[0.5fr_1fr_1fr_0.5fr_1fr]  py-4 border-b border-gray-800 text-white items-center rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50 transition duration-300"
               whileHover={{ scale: 1.02 }}
             >
               <p className="text-center text-black dark:text-white">{item.market_cap_rank}.</p>

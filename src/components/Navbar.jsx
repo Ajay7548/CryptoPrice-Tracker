@@ -104,7 +104,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isVisible && (
             <motion.div
-              className="fixed top-0 right-0 bottom-0 w-64 bg-white dark:bg-gray-950  text-gray-600 dark:text-gray-300 shadow-lg z-50"
+              className="fixed top-0 right-0 bottom-0 w-50 bg-white dark:bg-gray-950  text-gray-600 dark:text-gray-300 shadow-lg z-50"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
