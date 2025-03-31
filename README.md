@@ -11,12 +11,14 @@
 
 ---
 
-## 🚀 Features
-✅ **Live Market Data** – Track real-time cryptocurrency prices & market trends  
+## 🚀 Features  
+✅ **Live Market Data** – Track real-time cryptocurrency prices and market trends  
 🔍 **Search & Filter** – Easily find your favorite cryptocurrencies  
 📈 **Interactive Charts** – View historical price trends and analytics  
 📊 **Sorting & Ranking** – Sort coins by market cap, price, and more  
-⚡ **Fast & Responsive UI** – Built with Vite and optimized for speed  
+🔖 **Bookmark Favorites** – Save and track your favorite cryptocurrencies on a dedicated page  
+⚡ **Fast & Responsive UI** – Built with Vite, optimized for speed and performance  
+
 
 
 ---
