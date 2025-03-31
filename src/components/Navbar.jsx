@@ -1,13 +1,18 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { CoinContext } from "../context/CoinContext";
-import { Sun, Moon, ArrowUpRightIcon } from "lucide-react";
+import { Sun, Moon, ArrowUpRightIcon, ListMinus, X } from "lucide-react";
 import { useDarkMode } from "../context/ThemeContext";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Navbar = () => {
   const { setCurrency } = useContext(CoinContext);
   const { darkMode, setDarkMode } = useDarkMode();
+  const [isVisible,setIsVisible] = useState(false)
 
+  const toggleMobileScreen = () =>{
+    setIsVisible(!isVisible)
+  }
   // Currency Handler
   const currencyHandler = (event) => {
     const currencyMap = {
@@ -44,10 +49,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      {/* Mobile screen  */}
-      {/* pending  */}
-
-
+     
       {/* Right Section */}
       <div className="flex items-center gap-2 lg:gap-6">
         {/* Currency Selector */}
@@ -90,7 +92,41 @@ const Navbar = () => {
             )}
           </div>
         </button>
-      </div>
+        
+
+        <motion.div
+          onClick={() => setIsVisible(true)}
+          whileHover={{ scale: 1.1 }}
+          className="sm:hidden cursor-pointer"
+        >
+          <ListMinus className={`w-6 h-6 ${darkMode ? "text-white" : "text-black"}`} />
+        </motion.div>
+        <AnimatePresence>
+                {isVisible && (
+                  <motion.div
+                    className="fixed top-0 right-0 bottom-0 w-64 bg-white dark:bg-gray-950  text-gray-600 dark:text-gray-300 shadow-lg z-50"
+                    initial={{ x: "100%" }}
+                    animate={{ x: 0 }}
+                    exit={{ x: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="flex flex-col">
+                      <div
+                        onClick={() => setIsVisible(false)}
+                        className="flex items-center gap-4 p-6 cursor-pointer"
+                      >
+                        <span><X/></span>
+                        <p>Back</p>
+                      </div>
+                    <ul className="px-6 py-2 text-xl">
+                      <li className="p-2 border-b border-gray-500"><Link to={'/'}>Home</Link></li>
+                      <li className="p-2 border-b border-gray-500"><Link to={'/favourite'}>Favourite</Link></li>
+                    </ul>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+     </div>
     </nav>
   );
 };
